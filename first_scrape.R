@@ -219,3 +219,19 @@ tidy <- complete %>%
 write_csv(tidy, "chicago.csv")
 
 
+atl <- read_csv("D://yp_scrapes/tidydata/atlanta.csv")
+char <- read_csv("D://yp_scrapes/tidydata/charlotte.csv")
+chi <- read_csv("D://yp_scrapes/tidydata/chicago.csv")
+col <- read_csv("D://yp_scrapes/tidydata/columbus.csv")
+dal <- read_csv("D://yp_scrapes/tidydata/dallas.csv")
+den <- read_csv("D://yp_scrapes/tidydata/denver.csv")
+lax <- read_csv("D://yp_scrapes/tidydata/la.csv")
+min <- read_csv("D://yp_scrapes/tidydata/minneapolis.csv")
+phi <- read_csv("D://yp_scrapes/tidydata/philadelphia.csv")
+phx <- read_csv("D://yp_scrapes/tidydata/phoenix.csv")
+sea <- read_csv("D://yp_scrapes/tidydata/seattle.csv")
+
+all <- bind_rows(atl, char, chi, col, dal, den, lax, min, phi, phx, sea)
+
+write_csv(all, "total_churches.csv")
+
