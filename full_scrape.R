@@ -29,8 +29,8 @@ get_page <- function(url) {
 }
 
 
-city <- "Atlanta" ## Name of the City. If there is a space, add a + between the words. Los+Angeles
-state <- "GA" ## State. Two letter abbrevation
+city <- "Seattle" ## Name of the City. If there is a space, add a + between the words. Los+Angeles
+state <- "WA" ## State. Two letter abbrevation
 
 yp <- paste0("https://www.yellowpages.com/search?search_terms=churches&geo_location_terms=",city,"%2C%20",state)
 
@@ -75,13 +75,15 @@ col_add <- col_add %>%
 ## Bind the names df and the address df
 name_add <- bind_cols(col_name, col_add)
 
+write_csv(name_add, "D://yp_scrapes/need_geocodes/seattle_name_add.csv")
+
 ## For some reason it scrape the city mashed together with the address, this just takes the city name and adds a space before so it can geocode easier
 # name_add$address <- gsub("Columbus,", " Columbus,", name_add$address)
 
 ## There are dragons here. DO NOT RUN UNTIL YOU ARE READY
 
 ## This is your google API key
-register_google(key = "AIzaSyAX0VFzpus9E88SZQrWiQfn5GoA5RkypOM", account_type = "premium", day_limit = 100000)
+register_google(key = "XXXXXXXX", account_type = "premium", day_limit = 100000)
 
 ## This will geocode the entire address column from the vector we just grabbed. It will take a while
 # chi_geo1 <- name_add %>% head(1500)
